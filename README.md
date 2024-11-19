@@ -8,7 +8,7 @@ Design a system for managing a UK university’s staff and students. You will us
 ### **Step 1: Define the Base Class**
 
 ### **1. Person Class**  
-A general class for all individuals at the university.  
+A general class for all individuals at the university.
 
 **Attributes**:  
 - `name`: The full name of the person.  
