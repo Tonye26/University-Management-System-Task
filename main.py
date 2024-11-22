@@ -40,4 +40,7 @@ class Professor(Person):
         self.staff_id=staff_id
         self.salary=salary
         self.department=department
-    def give_feedback(Student,feedback):
+    def give_feedback(self,Student,feedback):
+        self.student=Student
+        self.feedback=feedback
+        print
