@@ -20,15 +20,16 @@ class Student(Person):
         self.student_id=student_id
         self.course=course
     def add_grade(self,grade):
-        self.grades=self.grades.append(grade)
+        self.grades.append(grade)
     def calculate_average_grade(self):
         if len(self.grades)>1:
             self.avg_grade=sum(self.grades)/len(self.grades)
+            print(f"The average grade for {student.name} is {self.avg_grade}")
             return self.avg_grade
         else:
             return 0
     def get_student_summary(self):
-        print(Student)
+        print(student.name,student.grades,student.age,student.gender)
 
 class Professor(Person):
     def __init__(self, name, age, gender):
@@ -49,7 +50,7 @@ class Professor(Person):
         percentage=percentage+1
         self.salary=self.salary*percentage
     def get_Professor_summary(self):
-        print(self)
+        print(professor.name,professor.age,professor.gender,professor.salary,professor.department,professor.staff_id)
 
 class Administrator(Person):
     def __init__(self, name, age, gender):
@@ -64,7 +65,7 @@ class Administrator(Person):
     def increment_service_years(self):
         self.years_of_service=self.years_of_service+1
     def get_admin_summary(self):
-        print(self)
+        print(self.age,self.admin_id,self.gender)
 
 professor=Professor("Arun Raghav-Sankar",65,"Male")
 professor.set_proffessor_details("A426",65000,"Biology")
@@ -74,9 +75,12 @@ adminstrator=Administrator("Adnan",32,"Male")
 adminstrator.set_admin_details("N946","H92",3)
 student.add_grade(9)
 student.add_grade(8)
-student.calculate_average_grade(student)
+student.calculate_average_grade()
 professor.increase_salary(50)
-adminstrator.increment_service_years(adminstrator)
+adminstrator.increment_service_years()
 professor.give_feedback(student,"Amazing work! Keep it up")
+student.get_student_summary()
+professor.get_Professor_summary()
+adminstrator.get_admin_summary()
 
 
