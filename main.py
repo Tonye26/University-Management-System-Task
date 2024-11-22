@@ -20,7 +20,7 @@ class Student(Person):
         self.student_id=student_id
         self.course=course
     def add_grade(self,grade):
-        self.grades.append(grade)
+        self.grades=self.grades.append(grade)
     def calculate_average_grade(self):
         if len(self.grades)>1:
             self.avg_grade=sum(self.grades)/len(self.grades)
@@ -43,4 +43,40 @@ class Professor(Person):
     def give_feedback(self,Student,feedback):
         self.student=Student
         self.feedback=feedback
-        print
+        print(f"Feedback for,{Student.name}:{self.feedback}")
+    def increase_salary(self,percentage):
+        percentage=percentage/100
+        percentage=percentage+1
+        self.salary=self.salary*percentage
+    def get_Professor_summary(self):
+        print(self)
+
+class Administrator(Person):
+    def __init__(self, name, age, gender):
+        super().__init__(name, age, gender)
+        self.admin_id=""
+        self.office=""
+        self.years_of_service=0
+    def set_admin_details(self,admin_id,office,years_of_service):
+        self.admin_id=admin_id
+        self.years_of_service=years_of_service
+        self.office=office
+    def increment_service_years(self):
+        self.years_of_service=self.years_of_service+1
+    def get_admin_summary(self):
+        print(self)
+
+professor=Professor("Arun Raghav-Sankar",65,"Male")
+professor.set_proffessor_details("A426",65000,"Biology")
+student=Student("Krystian Wilk",21,"Male")
+student.set_student_details("K401","Maths")
+adminstrator=Administrator("Adnan",32,"Male")
+adminstrator.set_admin_details("N946","H92",3)
+student.add_grade(9)
+student.add_grade(8)
+student.calculate_average_grade(student)
+professor.increase_salary(50)
+adminstrator.increment_service_years(adminstrator)
+professor.give_feedback(student,"Amazing work! Keep it up")
+
+
